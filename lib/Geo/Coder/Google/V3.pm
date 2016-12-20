@@ -25,6 +25,7 @@ sub new {
     my $sensor   = delete $param{sensor}   || 0;
     my $client   = delete $param{client}   || '';
     my $key      = delete $param{key}      || '';
+    my $channel  = delete $param{channel}  || undef;  
     my $components = delete $param{components};
    
     bless { 
