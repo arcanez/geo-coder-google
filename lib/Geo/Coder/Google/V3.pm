@@ -219,7 +219,7 @@ variables GMAP_CLIENT and GMAP_KEY before running 02_v3_live.t
   @location = $geocoder->geocode(location => $location);
 
 Queries I<$location> to Google Maps geocoding API and returns hash
-reference returned back from API server. When you cann the method in
+reference returned back from API server. When you call the method in
 an array context, it returns all the candidates got back, while it
 returns the 1st one in a scalar context.
 
