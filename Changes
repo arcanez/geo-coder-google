@@ -1,4 +1,8 @@
 Revision history for Perl extension Geo::Coder::Google
+0.19_01
+   - API key required (again) (RT#128197)
+       (Thanks to Wesley Hinds)
+
 0.19
    - non-dev release of 0.18_01
 
