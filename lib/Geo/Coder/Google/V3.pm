@@ -23,12 +23,14 @@ sub new {
     my $channel     = delete $param{channel}  || undef;
     my $client      = delete $param{client}   || '';
     my $key         = delete $param{key}      || '';
+    my $apikey      = delete $param{apikey}   || '';
     my $components  = delete $param{components};
    
     bless { 
         ua => $ua, host => $host, language => $language, 
         region => $region, oe => $oe, channel => $channel,
-        client => $client, key => $key, components => $components,
+        client => $client, key => $key, apikey => $apikey,
+        components => $components,
     }, $class;
 }
 
@@ -93,6 +95,10 @@ sub geocode {
         # signature must be last parameter in query string or you get 403's
         $url = $uri->as_string;
         $url .= '&signature='.$signature if $signature;
+    } elsif ($self->{apikey}) {
+        $query_parameters{key} = $self->{apikey};
+        $uri->query_form(%query_parameters);
+        $url = $uri->as_string;
     }
 
     my $res = $self->{ua}->get($url);
